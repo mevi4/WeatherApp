@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="text_city_size">28sp</dimen>
+    <dimen name="text_time_size">18sp</dimen>
+    <dimen name="text_temp_size">80sp</dimen>
+    <dimen name="text_desc_size">20sp</dimen>
+    <dimen name="text_button_size">18sp</dimen>
+    <dimen name="margin_large">40dp</dimen>
+    <dimen name="margin_medium">30dp</dimen>
+    <dimen name="margin_small">20dp</dimen>
+    <dimen name="card_corner_radius">25dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
+    <dimen name="card_margin">20dp</dimen>
+    <dimen name="card_padding">40dp</dimen>
+</resources>

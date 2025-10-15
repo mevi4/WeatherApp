@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Погода</string>
+    <string name="weather_title">Сегодня</string>
+    <string name="error_loading_weather">Ошибка загрузки данных</string>
+    <string name="weather_icon">Иконка погоды</string>
+    <string name="tomorrow">Завтра</string>
+    <string name="week">Неделя</string>
+    <string name="city">Москва</string>
+    <string name="today">Сегодня</string>
+</resources>
