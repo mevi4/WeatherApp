@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_weather"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Погода" />
+    <item
+        android:id="@+id/navigation_calculator"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Калькулятор" />
+</menu>
