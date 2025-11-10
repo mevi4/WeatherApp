@@ -1,8 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Base.Theme.WeatherApp" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+    <!-- Базовая тема приложения -->
+    <style name="Base.Theme.WeatherApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Цвета -->
+        <item name="colorPrimary">#D7CCC8</item> <!-- Бежевый -->
+        <item name="colorPrimaryVariant">#A1887F</item> <!-- Темно-бежевый -->
+        <item name="colorOnPrimary">#5D4037</item> <!-- Коричневый для текста -->
+        <item name="colorSecondary">#8D6E63</item>
+        <item name="colorSecondaryVariant">#5D4037</item>
+
+        <!-- Шрифт по умолчанию -->
+        <item name="android:fontFamily">@font/coiny_regular</item>
+        <item name="fontFamily">@font/coiny_regular</item>
+
+        <!-- Дополнительные настройки -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="Theme.WeatherApp" parent="Base.Theme.WeatherApp" />
