@@ -1,8 +1,6 @@
 package com.example.weatherapp.ui.calculator
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +28,6 @@ class CalculatorFragment : Fragment() {
     }
 
     private fun setupCalculator() {
-        // Number buttons
         binding.button0.setOnClickListener { appendToDisplay("0") }
         binding.button1.setOnClickListener { appendToDisplay("1") }
         binding.button2.setOnClickListener { appendToDisplay("2") }
@@ -42,14 +39,12 @@ class CalculatorFragment : Fragment() {
         binding.button8.setOnClickListener { appendToDisplay("8") }
         binding.button9.setOnClickListener { appendToDisplay("9") }
 
-        // Operation buttons
         binding.addButton.setOnClickListener { appendToDisplay("+") }
         binding.subtractButton.setOnClickListener { appendToDisplay("-") }
         binding.multiplyButton.setOnClickListener { appendToDisplay("*") }
         binding.divideButton.setOnClickListener { appendToDisplay("/") }
         binding.decimalButton.setOnClickListener { appendToDisplay(".") }
 
-        // Function buttons
         binding.clearButton.setOnClickListener { clearDisplay() }
         binding.backspaceButton.setOnClickListener { backspace() }
         binding.equalsButton.setOnClickListener { calculate() }
@@ -82,7 +77,6 @@ class CalculatorFragment : Fragment() {
             val expression = ExpressionBuilder(binding.displayEditText.text.toString()).build()
             val result = expression.evaluate()
 
-            // Проверяем, является ли результат целым числом
             val longResult = result.toLong()
             if (result == longResult.toDouble()) {
                 binding.displayEditText.setText(longResult.toString())

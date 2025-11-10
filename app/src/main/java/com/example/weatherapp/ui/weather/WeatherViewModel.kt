@@ -32,14 +32,6 @@ class WeatherViewModel(
             )
         }
     }
-
-    fun refreshWeather() {
-        loadWeather()
-    }
-
-    fun clearError() {
-        _state.value = _state.value.copy(error = null)
-    }
 }
 
 data class WeatherState(

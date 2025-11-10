@@ -60,9 +60,4 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() 
     }
 
     override fun getItemCount(): Int = if (weatherData != null) 1 else 0
-
-    fun setWeather(weather: WeatherData) {
-        this.weatherData = weather
-        notifyDataSetChanged()
-    }
 }
