@@ -9,9 +9,4 @@
         android:id="@+id/calculatorFragment"
         android:icon="@drawable/ic_calculator"
         android:title="Калькулятор" />
-
-    <item
-        android:id="@+id/listFragment"
-        android:icon="@drawable/ic_list"
-        android:title="Список" />
 </menu>

@@ -1,11 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
     namespace = "com.example.weatherapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.weatherapp"
@@ -29,18 +30,21 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+
     buildFeatures {
+        viewBinding = true
         compose = true
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17  // ← ИЗМЕНИТЕ НА 17
+        targetCompatibility = JavaVersion.VERSION_17  // ← ИЗМЕНИТЕ НА 17
+    }
+    kotlinOptions {
+        jvmTarget = "17"  // ← ИЗМЕНИТЕ НА 17
+    }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
+        kotlinCompilerExtensionVersion = "1.5.7"
     }
     packaging {
         resources {
@@ -50,40 +54,53 @@ android {
 }
 
 dependencies {
+    implementation(platform("androidx.compose:compose-bom:2023.10.01"))
+
     implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.10.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    implementation("com.google.android.material:material:1.10.0")
+
+    // Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+
+     implementation("androidx.room:room-runtime:2.6.0")
+     implementation("androidx.room:room-ktx:2.6.0")
+    implementation(libs.androidx.lifecycle.runtime.compose.android)
+    kapt("androidx.room:room-compiler:2.6.0")
+
+    // Lifecycle
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.8.0")
 
     // Compose
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.activity:activity-compose:1.8.1")
 
-    // Material Components for XML (включая CardView)
-    implementation("com.google.android.material:material:1.10.0")
-    implementation("androidx.cardview:cardview:1.0.0")
-
-    // Retrofit & Networking
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.10.01"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 
     // Koin
-    implementation("io.insert-koin:koin-android:3.4.0")
-    implementation("io.insert-koin:koin-androidx-compose:3.4.0")
+    implementation("io.insert-koin:koin-android:3.4.3")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.3")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     // Calculator
     implementation("net.objecthunter:exp4j:0.4.8")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-
-    // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

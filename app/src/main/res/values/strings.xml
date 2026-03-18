@@ -1,10 +1,43 @@
 <resources>
-    <string name="app_name">Погода</string>
-    <string name="weather_title">Сегодня</string>
-    <string name="error_loading_weather">Ошибка загрузки данных</string>
-    <string name="weather_icon">Иконка погоды</string>
+    <!-- Auth -->
+    <string name="login_title">Вход</string>
+    <string name="register_title">Регистрация</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Пароль</string>
+    <string name="confirm_password_hint">Подтвердите пароль</string>
+    <string name="name_hint">Имя</string>
+    <string name="login_button">Войти</string>
+    <string name="register_button">Зарегистрироваться</string>
+    <string name="back_to_login">Назад к входу</string>
+
+    <!-- Main App -->
+    <string name="weather">Погода</string>
+    <string name="calculator">Калькулятор</string>
+    <string name="list">Список</string>
+    <string name="app_name">Weather App</string>
+
+    <!-- Weather -->
+    <string name="today">Сегодня</string>
     <string name="tomorrow">Завтра</string>
     <string name="week">Неделя</string>
-    <string name="city">Москва</string>
-    <string name="today">Сегодня</string>
+    <string name="humidity">Влажность</string>
+    <string name="wind">Ветер</string>
+    <string name="pressure">Давление</string>
+    <string name="visibility">Видимость</string>
+    <string name="feels_like">Ощущается как</string>
+    <string name="weather_forecast">Прогноз погоды</string>
+
+    <!-- Calculator -->
+    <string name="calculate">Вычислить</string>
+    <string name="clear">Очистить</string>
+    <string name="enter_expression">Введите выражение</string>
+    <string name="result">Результат</string>
+    <string name="error">Ошибка</string>
+
+    <!-- Errors -->
+    <string name="error_invalid_credentials">Неверный email или пароль</string>
+    <string name="error_user_exists">Пользователь с таким email уже существует</string>
+    <string name="error_passwords_dont_match">Пароли не совпадают</string>
+    <string name="error_password_too_short">Пароль должен содержать минимум 6 символов</string>
+    <string name="error_network">Ошибка сети</string>
 </resources>

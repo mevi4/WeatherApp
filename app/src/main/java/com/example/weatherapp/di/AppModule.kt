@@ -1,37 +1,30 @@
 package com.example.weatherapp.di
 
-import calculator.data.repository.CalculatorRepositoryImpl
-import calculator.domain.repository.CalculatorRepository
-import calculator.domain.use_case.CalculateUseCase
-import calculator.presentation.viewmodel.CalculatorViewModel
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+import com.example.weatherapp.data.local.database.AppDatabase
+import com.example.weatherapp.data.repository.UserRepositoryImpl
+import com.example.weatherapp.domain.repository.UserRepository
+import com.example.weatherapp.domain.use_case.LoginUseCase
+import com.example.weatherapp.domain.use_case.RegisterUseCase
+import com.example.weatherapp.ui.auth.login.LoginViewModel
+import com.example.weatherapp.ui.auth.registration.RegistrationViewModel
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 
 val appModule = module {
 
-    // Calculator feature
-    single<CalculatorRepository> { CalculatorRepositoryImpl() }
-    single { CalculateUseCase(get()) }
-    viewModel { CalculatorViewModel(get()) }
+    // Database
+    single { AppDatabase.getInstance(androidContext()) }
+    single { get<AppDatabase>().userDao() }
 
-    // Retrofit for Weather API
-    single {
-        OkHttpClient.Builder()
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .build()
-    }
+    // Repository - с явным указанием типа
+    single<UserRepository> { UserRepositoryImpl(database = get()) }
 
-    single {
-        Retrofit.Builder()
-            .baseUrl("https://api.openweathermap.org/data/2.5/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(get())
-            .build()
-    }
+    // Use Cases - с явным указанием типа
+    single { RegisterUseCase(userRepository = get()) }
+    single { LoginUseCase(userRepository = get()) }
+
+    // ViewModels - с явным указанием типа
+    viewModel { RegistrationViewModel(registerUseCase = get()) }
+    viewModel { LoginViewModel(loginUseCase = get()) }
 }
